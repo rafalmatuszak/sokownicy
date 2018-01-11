@@ -1,3 +1,3 @@
 ## sokownicy
 
-# Przykladowe repozytorium do testowania 
+# Przykladowe repozytorium do testowania chuja
