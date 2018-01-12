@@ -1,4 +1,4 @@
-class Player
-    def move
-    end
+module Player
+  def move
+  end
 end
