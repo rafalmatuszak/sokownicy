@@ -1,4 +1,6 @@
 class Board
-    def next_move
-    end
+  attr_reader :size
+  def initialize(size)
+    @size=size
+  end
 end
