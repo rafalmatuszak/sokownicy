@@ -1,5 +1,22 @@
 # Refaktoryzacja gry Kółko i Krzyżyk
-![enter image description here](https://zapodaj.net/images/96360ce0d21e7.png)
+```bash
+Player 1: Podaj swój symbol 
+X
+Player 2: Podaj swój symbol
+O
+Wybierz rodzaj gry:
+1) 1 vs computer
+2) 1 vs 1
+1
+Wpisz rozmiar planszy do gry
+3
+||===||===||===||
+|| - || - || - ||
+|| - || - || - ||
+|| - || - || - ||
+||===||===||===||
+Podaj wiersz: 
+```
 ## Autorzy
 
  Matuszak Rafał, 
@@ -7,7 +24,7 @@
  Tracki Mateusz
 ## Opis projektu
  Celem projektu było zrefaktoryzowanie oraz otworzenie na przyszłe zmiany kodu, umieszczonego na [githubie](https://l.facebook.com/l.php?u=https://github.com/kevinrutherford/rrwb-code/tree/master/tic_tac_toe&h=ATNJ-oGKdyVbs6xuY9iIpiGREpRUfqjiAvHlxe5O-Nzb6XhcLiV1VtXiBapAl49-ucpAbi6EnMZn5KpesLWsCjMDhnNFqJ_Ua10qEKEH-Ka9Pdt8tWBxk_HG8Om169s_b7w4Evt8bjxRy3CxNJuAAjae6J2Mag). 
-## Proponowane zmiany
+## Proponowana zmiana
  Zaproponowaną przez autorów zmianą będzie możliwość przeprowadzenia dwóch trybów gry 
  1. czlowiek vs komputer
  2. czlowiek vs czlowiek
@@ -22,6 +39,7 @@
  2. Nill Check - w klasie `Game` znajdowało się porównanie obiektu do obiektu typu `nil`, które naruszało zasadę "Tell, don't ask".  
 
 Po usunięciu "zapachów", autorzy przeszli do etapu właściwej refaktoryzacji. 
+
 ### Zmiana definicji Gracza
 [Change player definition](https://github.com/OpenClosed/solid-sokownicy/commit/e18753a9b72029ba1f243e4289c91e4785be7875)
 
