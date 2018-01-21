@@ -59,7 +59,7 @@ Powyższe korekty nie otwierają kodu na żądaną zmianę i nie jest wiadome, j
 
 W tym kroku zostały utworzone konkretne implementacje graczy (klasy `ComputerPayer` oraz `HumanPlayer`). Dziedziczą one po klasie `Player`, obie zawierają w sobie metodę `move`. Metody te różni jednak to, że w klasie `ComputerPlayer` wybierany jest pierwszy możliwy ruch, natomiast w klasie `HumanPlayer` użytkownik pytany jest o współrzędne na planszy, w które ma zostać wprowadzony symbol. 
 
-[comment]: #(Ponadto zostały dodane metody wyświetlające planszę do gry w terminalu. Po zastosowaniu tych zmian, możliwe stało się przeprowadzenie rozgrywki.)
+Ponadto zostały dodane metody wyświetlające planszę do gry w terminalu. Po zastosowaniu tych zmian, możliwe stało się przeprowadzenie rozgrywki.
 
 Ta zmiana również nie umożliwia wprowadzenie zakładanej zmiany i nie jest wiadome, jak na tę zmianę otworzyć istniejący kod.
 
