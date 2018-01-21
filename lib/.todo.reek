@@ -1,0 +1,21 @@
+---
+DuplicateMethodCall:
+  exclude:
+  - Game
+  - Board
+  - Player
+IrresponsibleModule:
+  exclude:
+  - Game
+  - Board
+  - Player
+UncommunicativeParameterName:
+  exclude:
+  - Game
+  - Board
+  - Player
+UncommunicativeVariableName:
+  exclude:
+  - Game
+  - Board
+  - Player
