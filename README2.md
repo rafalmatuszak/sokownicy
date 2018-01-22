@@ -63,31 +63,30 @@ Ponadto zostały dodane metody wyświetlające planszę do gry w terminalu. Po z
 
 Ta zmiana również nie umożliwia wprowadzenie zakładanej zmiany i nie jest wiadome, jak na tę zmianę otworzyć istniejący kod.
 
-### Feature Envy smell oraz dodanie losowego ruchu komputera. 
+### Wersja 4
 [Fix Feature Envy smell. Add random method for computer move](https://github.com/OpenClosed/solid-sokownicy/commit/28a25e4e862c9bcc96cb39727248a29cb15a6a58)
-Po dodaniu powyższych zmian, otrzymaliśmy Feature Envy Smell. "Zapach" ten powstaje, kiedy fragment kodu odwołuje się do innego obiektu, częściej niż do samego siebie. 
 
-Aby pozbyć się tego "zapachu", przebudowana została metoda `move ` w klasie `HumanPlayer`. 
+Zmiany z Wersji 3 i Wersji 4 wprowadziły nowy "zapach" - FeatureEnvy. Zawierał się on w metodzie `move` klasy `HumanPlayer`. Wynikał on ze zbyt częstego odwoływania się metody do obiektów innego typu niż `HumanPlayer`.
 
-Dodatkowo zmieniona została logika poruszania się gracza komputerowego. Od teraz porusza się on po losowych polach. 
+Przebudowano metodę `move` wyżej wymienionej klasy. Zmieniono również metodę `move` klasy `ComputerPlayer` - od teraz gracz komputerowy losow wstawia znaki na planszy gry.
 
-### Refaktoring podawania startowych parametrów
-[Change passing start parameters method](https://github.com/OpenClosed/solid-sokownicy/commit/112ba129728676d6e14e545a589adf09ec929ec4)
+Również ta zmiana nie umożliwia wprowadzenia przewidywanej zmiany. Należy nadal zmieniać kod.
 
-Dodano metodę `start` w klasie `Game`, która odpowiada za pobranie parametrów niezbędnych do rozpoczęcia gry oraz jej rozpoczęcie. 
-
-Za pobranie parametrów odpowiadają 3 metody (`choose_symbol, choose_mode, choose_board_size `). Dodatkowo walidują one wprowadzone argumenty.
-
-### Warunki zwycięstwa
+### Wersja 5
   [Add winner conditions](https://github.com/OpenClosed/solid-sokownicy/commit/6e0619a20aba6b6af56abd20e8c19033641bd7a1)
-
-Zostały wprowadzone 4 warunki zwycięstwa:
+  Zostały wprowadzone 4 warunki zwycięstwa:
 
  - sprawdzanie wierszy
  - sprawdzanie kolumn
  - sprawdzanie 2 różnych przekątnych
  
  Sprawdzenie polega na znalezieniu tylu takich samych symboli w dowolnym warunku, jak duży jest wymiar planszy. Gracz wygrywa, gdy któryś warunek jest spełniony.
+
+### Wersja 6
+[Change passing start parameters method](https://github.com/OpenClosed/solid-sokownicy/commit/112ba129728676d6e14e545a589adf09ec929ec4)
+
+Dodano metodę `start` w klasie `Game`, która odpowiada za pobranie parametrów niezbędnych do rozpoczęcia gry oraz jej uruchomienie. 
+Za pobranie parametrów odpowiadają 3 metody (`choose_symbol, choose_mode, choose_board_size `). Dodatkowo walidują one wprowadzone argumenty.
 
 ### Wyświetlenie zwycięzcy 
 [Add message with winner](https://github.com/OpenClosed/solid-sokownicy/commit/72d9958bf32a96ed651a863aba52b07e117d312d)
