@@ -23,7 +23,7 @@ Podaj wiersz:
  Piecuch Mikołaj, 
  Tracki Mateusz
 ## Opis projektu
- Celem projektu było zrefaktoryzowanie oraz otworzenie na przyszłe zmiany kodu, umieszczonego na [githubie](https://l.facebook.com/l.php?u=https://github.com/kevinrutherford/rrwb-code/tree/master/tic_tac_toe&h=ATNJ-oGKdyVbs6xuY9iIpiGREpRUfqjiAvHlxe5O-Nzb6XhcLiV1VtXiBapAl49-ucpAbi6EnMZn5KpesLWsCjMDhnNFqJ_Ua10qEKEH-Ka9Pdt8tWBxk_HG8Om169s_b7w4Evt8bjxRy3CxNJuAAjae6J2Mag). 
+ Celem projektu było zrefaktoryzowanie oraz otworzenie na przyszłe zmiany kodu, umieszczonego na [githubie](https://github.com/kevinrutherford/rrwb-code/tree/master/tic_tac_toe). 
 ## Proponowana zmiana
  Zaproponowaną przez autorów zmianą będzie możliwość przeprowadzenia dwóch trybów gry 
  1. czlowiek vs komputer
@@ -33,7 +33,7 @@ Podaj wiersz:
 ## Refactoring
 ### Wstępne "zapachy"
 
- Istniejący kod zawierał kilka "zapachów", które należało usunąć przed rozpoczęciem refaktoryzacji:
+Istniejący kod zawierał kilka "zapachów", które należało usunąć przed rozpoczęciem refaktoryzacji:
  
  1. Attribute smell - klasa `Game` zawierała pole `attr_accessor :board`, które umożliwiało jego edycję. Aby to naprawić, należało zmienić typ pola na `attr_reader`, by pole było tylko do odczytu.  
  2. Nill Check - w klasie `Game` znajdowało się porównanie obiektu do obiektu typu `nil`, które naruszało zasadę "Tell, don't ask".  
@@ -68,33 +68,33 @@ Ta zmiana również nie umożliwia wprowadzenie zakładanej zmiany i nie jest wi
 
 Zmiany z Wersji 3 i Wersji 4 wprowadziły nowy "zapach" - FeatureEnvy. Zawierał się on w metodzie `move` klasy `HumanPlayer`. Wynikał on ze zbyt częstego odwoływania się metody do obiektów innego typu niż `HumanPlayer`.
 
-Przebudowano metodę `move` wyżej wymienionej klasy. Zmieniono również metodę `move` klasy `ComputerPlayer` - od teraz gracz komputerowy losow wstawia znaki na planszy gry.
+Przebudowano metodę `move` wyżej wymienionej klasy. Zmieniono również metodę `move` klasy `ComputerPlayer` - od teraz gracz komputerowy losowo wstawia znaki na planszy.
 
 Również ta zmiana nie umożliwia wprowadzenia przewidywanej zmiany. Należy nadal zmieniać kod.
 
 ### Wersja 5
-  [Add winner conditions](https://github.com/OpenClosed/solid-sokownicy/commit/6e0619a20aba6b6af56abd20e8c19033641bd7a1)
-  Zostały wprowadzone 4 warunki zwycięstwa:
+[Add winner conditions](https://github.com/OpenClosed/solid-sokownicy/commit/6e0619a20aba6b6af56abd20e8c19033641bd7a1)
+Zostały wprowadzone 4 warunki zwycięstwa:
 
- - sprawdzanie wierszy
- - sprawdzanie kolumn
- - sprawdzanie 2 różnych przekątnych
+- sprawdzanie wierszy
+- sprawdzanie kolumn
+- sprawdzanie dwóch różnych przekątnych
  
- Sprawdzenie polega na znalezieniu tylu takich samych symboli w dowolnym warunku, jak duży jest wymiar planszy. Gracz wygrywa, gdy któryś warunek jest spełniony.
+Do stwierdzenia wygranej wystarczy spełnienie jednego z powyższych warunków. Sprawdzenie polega na zliczeniu ilości występowania symboli w wierszu/kolumnie/przekątnej. Jeśli uzyskana liczba równa jest wymiarowi planszy, stwierdzana jest wygrana. 
 
 ### Wersja 6
 [Change passing start parameters method](https://github.com/OpenClosed/solid-sokownicy/commit/112ba129728676d6e14e545a589adf09ec929ec4)
-
-Dodano metodę `start` w klasie `Game`, która odpowiada za pobranie parametrów niezbędnych do rozpoczęcia gry oraz jej uruchomienie. 
-Za pobranie parametrów odpowiadają 3 metody (`choose_symbol, choose_mode, choose_board_size `). Dodatkowo walidują one wprowadzone argumenty.
-
-### Wyświetlenie zwycięzcy 
 [Add message with winner](https://github.com/OpenClosed/solid-sokownicy/commit/72d9958bf32a96ed651a863aba52b07e117d312d)
 
-Ostatnią zmianą było wyświetlenie gracza który wygrał grę lub ogłoszenie remisu.
- 
+Dodano metodę `start` w klasie `Game`, która odpowiada za pobranie parametrów niezbędnych do rozpoczęcia gry oraz jej uruchomienie. 
+Za pobranie parametrów odpowiadają trzy metody (`choose_symbol, choose_mode, choose_board_size `). Sprawdzają one również poprawność wprowadzonych argumentów.
 
- ### Wybór trybu gry - to powinno być
-[Add selecting game mod](https://l.facebook.com/l.php?u=https://github.com/OpenClosed/solid-sokownicy/commit/e5b76e90eb81a6d4242732d576757a80b25e1277&h=ATNJ-oGKdyVbs6xuY9iIpiGREpRUfqjiAvHlxe5O-Nzb6XhcLiV1VtXiBapAl49-ucpAbi6EnMZn5KpesLWsCjMDhnNFqJ_Ua10qEKEH-Ka9Pdt8tWBxk_HG8Om169s_b7w4Evt8bjxRy3CxNJuAAjae6J2Mag)
+Ponadto, udoskonalono pętlę główną gry w klasie `Game`(metoda `play`), aby wyświetlała zwycięzcę.
 
+Poprawki te otworzyły ostatecznie kod na wprowadzenie zamierzonej zmiany - wyboru trybu gry.  
+
+### Kod otwarty na wprowadzenie zmiany
+[Add selecting game mod](https://github.com/OpenClosed/solid-sokownicy/commit/e5b76e90eb81a6d4242732d576757a80b25e1277)
+
+Po poprawkach wprowadzonych w wersji 6, kod został otwarty na wprowadzenie zamierzonej zmiany.
 Dodana została możliwość wyboru trybu gry. Można wybrać rozgrywkę z komputerem lub drugim graczem.
