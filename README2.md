@@ -203,7 +203,6 @@ end
 Ponadto, udoskonalono pętlę główną gry w klasie `Game`(metoda `play`), aby wyświetlała zwycięzcę.
 
 Wśród parametrów startowych gry znajduje się parametr trybu gry, czyli zakładanej na początku projektu zmiany.
-
 ##Podsumowanie
 
 Po dokonaniu wielu dodatkowych poprawek, autorzy ostatecznie otworzyli kod na wprowadzenie zmiany zakładanej na samym początku. Kolejne wersje przynosiły zmiany nieprzewidziane w założeniach, aczkolwiek umożliwiające lepsze zrozumienie kodu i pozwalające na wyeliminowanie występująych po drodze "zapachów". Oprócz zakładanej zmiany w postaci wyboru trybu gry, autorom udało się również m.in. lepiej zamodelować planszę do gry, wydzielić instancje gracza koputerowego i człowieka, umożliwić graczowi komputerowemu losowe wprowadzanie symboli.
