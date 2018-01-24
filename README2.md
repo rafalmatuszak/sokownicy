@@ -24,21 +24,22 @@ Podaj wiersz:
  Tracki Mateusz
 ## Opis projektu
  Celem projektu było zrefaktoryzowanie oraz otworzenie na przyszłe zmiany kodu, umieszczonego na [githubie](https://github.com/kevinrutherford/rrwb-code/tree/master/tic_tac_toe). 
+ 
 ## Proponowana zmiana
  Zaproponowaną przez autorów zmianą będzie możliwość przeprowadzenia dwóch trybów gry 
  1. czlowiek vs komputer
  2. czlowiek vs czlowiek
 
-
 ## Refactoring
 ### Wstępne "zapachy"
 
-Istniejący kod zawierał kilka "zapachów", które należało usunąć przed rozpoczęciem refaktoryzacji:
+Po wstępnym zapoznaniu się z początkowym kodem, autorzy uznali go za mało czytelny ("ugly code") i postanowili sprawdzić jego poprawność narzędziem reek. Wydruk z programu reek wykazał istnienie kilku "zapachów".  
+Należało usunąć je przed rozpoczęciem refaktoryzacji:
  
  1. Attribute smell - klasa `Game` zawierała pole `attr_accessor :board`, które umożliwiało jego edycję. Aby to naprawić, należało zmienić typ pola na `attr_reader`, by pole było tylko do odczytu.  
  2. Nill Check - w klasie `Game` znajdowało się porównanie obiektu do obiektu typu `nil`, które naruszało zasadę "Tell, don't ask".  
 
-Po usunięciu "zapachów", autorzy przeszli do etapu właściwej refaktoryzacji.
+Usunięcie "zapachów" niestety nie otworzyło kodu na proponowaną zmianę. Autorzy przeszli do edycji istniejącego kodu i weryfikacji wprowadzonych poprawek.
 
 ### Wersja 1
 [Change player definition](https://github.com/OpenClosed/solid-sokownicy/commit/e18753a9b72029ba1f243e4289c91e4785be7875)
@@ -203,5 +204,6 @@ Ponadto, udoskonalono pętlę główną gry w klasie `Game`(metoda `play`), aby 
 
 Wśród parametrów startowych gry znajduje się parametr trybu gry, czyli zakładanej na początku projektu zmiany.
 
+##Podsumowanie
 
-
+Po dokonaniu wielu dodatkowych poprawek, autorzy ostatecznie otworzyli kod na wprowadzenie zmiany zakładanej na samym początku. Kolejne wersje przynosiły zmiany nieprzewidziane w założeniach, aczkolwiek umożliwiające lepsze zrozumienie kodu i pozwalające na wyeliminowanie występująych po drodze "zapachów". Oprócz zakładanej zmiany w postaci wyboru trybu gry, autorom udało się również m.in. lepiej zamodelować planszę do gry, wydzielić instancje gracza koputerowego i człowieka, umożliwić graczowi komputerowemu losowe wprowadzanie symboli.
